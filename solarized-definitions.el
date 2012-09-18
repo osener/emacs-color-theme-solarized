@@ -181,25 +181,28 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (fmt-revbbu `(:weight ,bright-bold :slant normal  :underline ,underline :inverse-video t)))
           `((;; basic
              (default ((t (,@fg-base0 ,@bg-back)))) ; Normal
-             (cursor ((t (,@fg-base03 ,@bg-base0)))) ; Cursor
+             (cursor ((t (,@bg-magenta)))) ; Cursor
+             (success ((t (,@fmt-bold ,@fg-green))))
              (error ((t (,@fmt-bold ,@fg-red)))) ; Error
+             (warning ((t (,@fmt-bold ,@fg-orange))))
              (escape-glyph-face ((t (,@fg-red))))
              (fringe ((t (,@fg-base01 ,@bg-base02))))
              (linum ((t (,@fg-base01 ,@bg-base02))))
-             (header-line ((t (,@fg-base0 ,@bg-base02 ,@fmt-revbb)))) ; Pmenu
+             (header-line ((t (,@fg-base1 :background nil :inherit nil)))) ; Pmenu
              (highlight ((t (,@bg-base02))))
              (hl-line ((t (:underline ,opt-under ,@bg-base02)))) ; CursorLine
              (isearch ((t (,@fmt-stnd ,@fg-orange ,@bg-back)))) ; IncSearch
              (isearch-fail ((t (,@fmt-stnd ,@fg-orange ,@bg-back)))) ; IncSearch
              (lazy-highlight ((t (,@fmt-revr ,@fg-yellow ,@bg-back)))) ; Search
-             (link ((t (,@fmt-undr ,@fg-violet))))
+             (link ((t (,@fmt-undr ,@fg-blue))))
              (link-visited ((t (,@fmt-undr ,@fg-magenta))))
              (menu ((t (,@fg-base0 ,@bg-base02))))
-             (minibuffer-prompt ((t (,@fmt-bold ,@fg-cyan)))) ; Question
-             (mode-line  ; StatusLine
-              ((t (,@fg-base1 ,@bg-base02 ,@fmt-revbb :box nil))))
-             (mode-line-inactive ; StatusLineNC
-              ((t (,@fg-base00 ,@bg-base02 ,@fmt-revbb :box nil))))
+             (minibuffer-prompt ((t (,@fmt-bold ,@fg-blue)))) ; Question
+             (mode-line ((t (,@fg-base00 ,@bg-base02 :box (:line-width 1 :color ,base00)))))
+             (mode-line-buffer-id ((t (,@fg-magenta))))
+             (mode-line-inactive ((t (,@fg-base01 ,@bg-base03 :box (:line-width 1 :color ,base01)))))
+             (mode-line-emphasis ((t (,@fg-base1))))
+             (mode-line-highlight ((t (,@fg-magenta :box (:line-width 1 :color ,base00)))))
              (region ((t (,@fg-base01 ,@bg-base03 ,@fmt-revbb)))) ; Visual
              (secondary-selection ((t (,@bg-base02))))
              (shadow ((t (,@fg-base01))))
@@ -229,7 +232,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (custom-invalid ((t (,@fmt-revr ,@fg-red ,@bg-back))))
              (custom-link ((t (,@fg-violet))))
              (custom-state ((t (,@fg-green))))
-             (custom-variable-tag ((t (,@fg-base1))))
+             (custom-variable-tag ((t (,@fg-blue))))
+             (custom-group-tag ((t (,@fg-blue))))
+             (custom-state-tag ((t (,@fg-green))))
              ;; diff - DiffAdd, DiffChange, DiffDelete, and DiffText
              ,@(case solarized-diff-mode
                  (high
@@ -259,36 +264,38 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (diff-header ((t (,@fg-base1 ,@bg-back))))
              ;; IDO
              (ido-only-match ((t (,@fg-green))))
-             (ido-subdir ((t (,@fg-blue))))
-             (ido-first-match ((t (,@fmt-bold ,@fg-green))))
+             (ido-subdir ((t (,@fg-magenta))))
+             (ido-first-match ((t (,@fmt-bold ,@fg-yellow))))
+             (ido-indicator ((t (,@fg-red ,@bg-back))))
+             (ido-virtual ((t (,@fg-base01))))
              ;; emacs-wiki
              (emacs-wiki-bad-link-face ((t (,@fmt-undr ,@fg-red))))
              (emacs-wiki-link-face ((t (,@fmt-undr ,@fg-blue))))
              (emacs-wiki-verbatim-face ((t (,@fmt-undr ,@fg-base00))))
              ;; eshell
-             (eshell-ls-archive ((t (,@fg-magenta))))
+             (eshell-ls-archive ((t (,@fg-cyan))))
              (eshell-ls-backup ((t (,@fg-yellow))))
              (eshell-ls-clutter ((t (,@fg-orange))))
              (eshell-ls-directory ((t (,@fg-blue)))) ; Directory
-             (eshell-ls-executable ((t (,@fg-green))))
-             (eshell-ls-missing ((t (,@fg-red))))
+             (eshell-ls-executable ((t (,@fg-red))))
+             (eshell-ls-missing ((t (,@fg-violet))))
              (eshell-ls-product ((t (,@fg-yellow))))
              (eshell-ls-readonly ((t (,@fg-base1))))
-             (eshell-ls-special ((t (,@fg-violet))))
-             (eshell-ls-symlink ((t (,@fg-cyan))))
+             (eshell-ls-special ((t (,@fg-green))))
+             (eshell-ls-symlink ((t (,@fg-magenta))))
              (eshell-ls-unreadable ((t (,@fg-base00))))
              (eshell-prompt ((t (,@fmt-bold ,@fg-green))))
              ;; font-lock
-             (font-lock-builtin-face ((t (,@fmt-none ,@fg-green)))) ; Statement
+             (font-lock-builtin-face ((t (,@fmt-none ,@fg-violet)))) ; Statement
              (font-lock-comment-face ((t (,@fmt-ital ,@fg-base01)))) ; Comment
-             (font-lock-constant-face ((t (,@fmt-none ,@fg-cyan)))) ; Constant
+             (font-lock-constant-face ((t (,@fmt-none ,@fg-violet)))) ; Constant
              (font-lock-function-name-face ; Identifier
               ((t (,@fmt-none ,@fg-blue))))
              (font-lock-keyword-face ((t (,@fmt-none ,@fg-green)))) ; Statement
              (font-lock-string-face ((t (,@fmt-none ,@fg-cyan)))) ; Constant
              (font-lock-type-face ((t (,@fmt-none ,@fg-yellow)))) ; Type
              (font-lock-variable-name-face ; Identifier
-              ((t (,@fmt-none ,@fg-blue))))
+              ((t (,@fmt-none ,@fg-yellow))))
              (font-lock-warning-face ((t (,@fmt-bold ,@fg-red)))) ; Error
              (font-lock-doc-face ((t (,@fmt-ital ,@fg-base01)))) ; Comment
              (font-lock-doc-string-face  ; Comment (XEmacs-only)
@@ -297,33 +304,48 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (font-lock-comment-delimiter-face ; Comment
               ((t (,@fmt-ital ,@fg-base01))))
              (font-lock-preprocessor-face ; PreProc
-              ((t (,@fmt-none ,@fg-orange))))
+              ((t (,@fmt-none ,@fg-magenta))))
              (font-lock-reference-face ((t (,@fmt-none ,@fg-cyan))))
-             (font-lock-negation-char-face ((t (,@fmt-none ,@fg-red))))
+             (font-lock-negation-char-face ((t (,@fmt-none ,@fg-green))))
              (font-lock-other-type-face ((t (,@fmt-ital ,@fg-blue))))
              (font-lock-regexp-grouping-construct
-              ((t (,@fmt-none ,@fg-orange))))
+              ((t (,@fmt-none ,@fg-violet))))
              (font-lock-special-keyword-face ; Special
               ((t (,@fmt-none ,@fg-red))))
              (font-lock-exit-face ((t (,@fmt-none ,@fg-red))))
              (font-lock-other-emphasized-face ((t (,@fmt-bldi ,@fg-violet))))
              (font-lock-regexp-grouping-backslash
-              ((t (,@fmt-none ,@fg-yellow))))
+              ((t (,@fmt-none ,@fg-magenta))))
              ;; info
              (info-xref ((t (,@fmt-undr ,@fg-blue))))
              (info-xref-visited ((t (,@fg-magenta :inherit info-xref))))
              ;; org
-             (org-hide ((t (,@fg-base03))))
-             (org-todo ((t (,@fmt-bold ,@fg-base03 ,@bg-red))))
-             (org-done ((t (,@fmt-bold ,@fg-green))))
-             (org-todo-kwd-face ((t (,@fg-red ,@bg-base03))))
-             (org-done-kwd-face ((t (,@fg-green ,@bg-base03))))
-             (org-project-kwd-face ((t (,@fg-violet ,@bg-base03))))
-             (org-waiting-kwd-face ((t (,@fg-orange ,@bg-base03))))
-             (org-someday-kwd-face ((t (,@fg-blue ,@bg-base03))))
-             (org-started-kwd-face ((t (,@fg-yellow ,@bg-base03))))
-             (org-cancelled-kwd-face ((t (,@fg-green ,@bg-base03))))
-             (org-delegated-kwd-face ((t (,@fg-cyan ,@bg-base03))))
+             (org-date ((t (@fmt-undr ,@fg-blue))))
+             (org-agenda-structure ((t (,@fg-violet))))
+             (org-agenda-date ((t (,@fmt-undr ,@fg-blue))))
+             (org-agenda-done ((t (,@fg-green))))
+             (org-agenda-dimmed-todo-face ((t (,@fg-base01))))
+             (org-block ((t (,@fg-orange))))
+             (org-code ((t (,@fg-yellow))))
+             (org-column ((t (,@bg-base02))))
+             (org-document-info ((t (,@fg-cyan))))
+             (org-document-info-keyword ((t (,@fg-green))))
+             (org-document-title ((t (,@fmt-bold ,@fg-yellow :height 1.44))))
+             (org-done ((t (,@fg-green))))
+             (org-formula ((t (,@fg-orange))))
+             (org-link ((t (,@fmt-undr ,@fg-blue))))
+             (org-scheduled ((t (,@fg-green))))
+             (org-scheduled-previously ((t (,@fg-yellow))))
+             (org-scheduled-today ((t (,@fg-green))))
+             (org-special-keyword ((t (,@fg-yellow))))
+             (org-table ((t (,@fg-violet))))
+             (org-todo ((t (,@fg-red))))
+             (org-upcoming-deadline ((t (,@fg-yellow))))
+             (org-warning ((t (,@fmt-bold ,@fg-red))))
+
+             (markdown-header-face ((t (:inherit header-line))))
+             (markdown-url-face ((t (:inherit link))))
+             (markdown-link-face ((t (,@fmt-undr ,@fg-blue))))
              ;; table
              (table-cell ((t (,@fmt-none ,@fg-base0 ,@bg-back))))
              ;; outline - pandocBlockQuoteLeader*
@@ -353,6 +375,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (widget-single-line-field ((t (:inherit widget-field))))
              ;; extra modules
              ;; -------------
+             (hl-sexp-face ((t (,@bg-base02))))
+             (highlight-80+ ((t (,@bg-base02))))
              ;; Flymake
              (flymake-errline ((t (,@fmt-revr ,@fg-red ,@bg-back)))) ; ErrorMsg
              (flymake-warnline ; WarningMsg
@@ -464,18 +488,32 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (message-header-subject ((t (,@fg-base00))))
              (message-header-cc ((t (,@fmt-bold ,@fg-green))))
              (message-header-to ((t (,@fmt-bold ,@fg-base1))))
+             ;; ERC
+             (erc-direct-msg-face ((t (,@fg-yellow))))
+             (erc-error-face ((t (,@fg-red))))
+             (erc-header-face ((t (,@fg-base1 ,@bg-base02 ))))
+             (erc-input-face ((t (,@fg-green))))
+             (erc-current-nick-face ((t (,@fg-green))))
+             (erc-my-nick-face ((t (,@fg-green))))
+             (erc-nick-default-face ((t (,@fg-violet))))
+             (erc-nick-msg-face ((t (,@fg-yellow))))
+             (erc-notice-face ((t (,@fg-base01))))
+             (erc-pal-face ((t (,@fg-orange))))
+             (erc-prompt-face ((t (,@fg-blue))))
+             (erc-timestamp ((t (,@fg-cyan))))
              ;; parenface
              (paren-face ((t (,@fg-base01))))
              ;; rainbow-delimiters
-             (rainbow-delimiters-depth-1-face ((t (,@fg-cyan))))
-             (rainbow-delimiters-depth-2-face ((t (,@fg-yellow))))
-             (rainbow-delimiters-depth-3-face ((t (,@fg-blue))))
-             (rainbow-delimiters-depth-4-face ((t (,@fg-red))))
-             (rainbow-delimiters-depth-5-face ((t (,@fg-green))))
-             (rainbow-delimiters-depth-6-face ((t (,@fg-blue))))
-             (rainbow-delimiters-depth-7-face ((t (,@fg-orange))))
-             (rainbow-delimiters-depth-8-face ((t (,@fg-magenta))))
-             (rainbow-delimiters-depth-9-face ((t (,@fg-base0))))
+             (rainbow-delimiters-depth-1-face ((t (,@fg-base00))))
+             (rainbow-delimiters-depth-2-face ((t (,@fg-cyan))))
+             (rainbow-delimiters-depth-3-face ((t (,@fg-yellow))))
+             (rainbow-delimiters-depth-4-face ((t (,@fg-green))))
+             (rainbow-delimiters-depth-5-face ((t (,@fg-blue))))
+             (rainbow-delimiters-depth-6-face ((t (,@fg-base0))))
+             (rainbow-delimiters-depth-7-face ((t (,@fg-cyan))))
+             (rainbow-delimiters-depth-8-face ((t (,@fg-yellow))))
+             (rainbow-delimiters-depth-9-face ((t (,@fg-green))))
+             (rainbow-delimiters-unmatched-face ((t (,@fg-red))))
              ;; slime
              (slime-error-face ((t (,@fmt-revr ,@fg-red)))) ; ErrorMsg
              (slime-note-face ((t (,@fg-yellow))))
@@ -483,6 +521,63 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (slime-repl-output-mouseover-face ((t (:box (:color ,base3)))))
              (slime-style-warning-face ((t (,@fmt-bold ,@fg-orange))))
              (slime-warning-face ((t (,@fmt-bold ,@fg-red)))) ; WarningMsg
+             ;; Clojure
+             (clojure-test-failure-face ((t (:inherit flymake-warnline))))
+             (clojure-test-error-face ((t (:inherit flymake-errline)))) ; ErrorMsg
+             (clojure-test-success-face ((t (,@fg-green))))
+             ;; For Brian Carper's extended clojure syntax table
+             (clojure-keyword ((t (,@fg-yellow))))
+             (clojure-parens ((t (,@fg-base1))))
+             (clojure-braces ((t (,@fg-green))))
+             (clojure-brackets ((t (,@fg-yellow))))
+             (clojure-double-quote ((t (,@fg-cyan))))
+             (clojure-special ((t (,@fg-blue))))
+             (clojure-java-call ((t (,@fg-magenta))))
+             ;; js3-mode
+             (js3-warning-face ((t (:inherit flymake-warnline))))
+             (js3-error-face ((t (:inherit flymake-errline))))
+             (js3-external-variable-face ((t (,@fg-magenta))))
+             (js3-function-param-face ((t (,@fg-blue))))
+             (js3-jsdoc-tag-face ((t (,@fg-magenta))))
+             (js3-jsdoc-type-face ((t (,@fg-cyan))))
+             (js3-jsdoc-value-face ((t (,@fg-violet))))
+             (js3-jsdoc-html-tag-name-face ((t (,@fg-blue))))
+             (js3-jsdoc-html-tag-delimiter-face ((t (,@fg-green))))
+             (js3-instance-member-face ((t (,@fg-blue))))
+             (js3-private-function-call-face ((t (,@fg-red))))
+             ;; undo-tree
+             (undo-tree-visualizer-default-face ((t (,@fg-base00))))
+             (undo-tree-visualizer-current-face ((t (,@fmt-bold ,@fg-green))))
+             (undo-tree-visualizer-active-branch-face ((t (,@fg-red))))
+             (undo-tree-visualizer-register-face ((t (,@fg-yellow))))
+             ;; dired+
+             (diredp-dir-heading ((t (:foreground nil :background nil :inherit heading))))
+             (diredp-dir-priv ((t (,@fg-cyan :background nil))))
+             (diredp-exec-priv ((t (,@fg-blue :background nil))))
+             (diredp-file-name ((t (,@fg-yellow))))
+             (diredp-file-suffix ((t (,@fg-green))))
+             (diredp-flag-mark-line ((t (:background nil :inherit highlight))))
+             (diredp-ignored-file-name ((t (,@fg-base01))))
+             (diredp-link-priv ((t (:background nil ,@fg-violet))))
+             (diredp-no-priv ((t (:background nil))))
+             (diredp-number ((t (,@fg-yellow))))
+             (diredp-other-priv ((t (:background nil ,@fg-magenta))))
+             (diredp-rare-priv ((t (,@fg-red :background nil))))
+             (diredp-read-priv ((t (,@fg-green :background nil))))
+             (diredp-symlink ((t (,@fg-violet))))
+             (diredp-write-priv ((t (,@fg-yellow :background nil))))
+             ;; Magit
+             (magit-branch ((t (,@fg-green))))
+             (magit-item-highlight ((t (:inherit highlight :background nil))))
+             (magit-log-graph ((t (,@fg-base01))))
+             (magit-log-sha1 ((t (,@fg-yellow))))
+             (magit-log-head-label-bisect-bad ((t (,@fg-red))))
+             (magit-log-head-label-bisect-good ((t (,@fg-green))))
+             (magit-log-head-label-default ((t (,@fmt-bold ,@fg-yellow :box nil))))
+             (magit-log-head-label-local ((t (,@fmt-bold ,@fg-magenta :box nil))))
+             (magit-log-head-label-remote ((t (,@fmt-bold ,@fg-violet :box nil))))
+             (magit-log-head-label-tags ((t (,@fmt-bold ,@fg-cyan :box nil))))
+             (magit-section-title ((t (,@fmt-bold ,@fg-blue :box nil))))
              ;; whitespace
              (whitespace-empty ((t (,@fg-red))))
              (whitespace-hspace ((t (,@fg-orange))))
@@ -513,7 +608,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (background-color . ,back)
              (background-mode . ,mode)
              (cursor-color . ,(when (<= 16 (display-color-cells))
-                                base0)))))))))
+                                magenta)))))))))
 
 (defmacro create-solarized-theme (mode)
   (let* ((theme-name (intern (concat "solarized-" (symbol-name mode))))
