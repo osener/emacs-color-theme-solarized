@@ -532,6 +532,13 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (clojure-double-quote ((t (,@fg-cyan))))
              (clojure-special ((t (,@fg-blue))))
              (clojure-java-call ((t (,@fg-magenta))))
+             ;; js2-mode
+             (js2-warning-face ((t (:inherit flymake-warnline))))
+             (js2-error-face ((t (:inherit flymake-errline))))
+             (js2-external-variable-face ((t (,@fg-magenta))))
+             (js2-function-param-face ((t (,@fg-blue))))
+             (js2-instance-member-face ((t (,@fg-blue))))
+             (js2-private-function-call-face ((t (,@fg-red))))
              ;; js3-mode
              (js3-warning-face ((t (:inherit flymake-warnline))))
              (js3-error-face ((t (:inherit flymake-errline))))
