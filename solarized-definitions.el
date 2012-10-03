@@ -188,7 +188,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (escape-glyph-face ((t (,@fg-red))))
              (fringe ((t (,@fg-base01 ,@bg-base02))))
              (linum ((t (,@fg-base01 ,@bg-base02))))
-             (header-line ((t (,@fg-base1 :background nil :inherit nil)))) ; Pmenu
+             (header-line ((t (:inherit mode-line ,@fg-magenta)))) ; Pmenu
              (highlight ((t (,@bg-base02))))
              (hl-line ((t (:underline ,opt-under ,@bg-base02)))) ; CursorLine
              (isearch ((t (,@fmt-stnd ,@fg-orange ,@bg-back)))) ; IncSearch
@@ -198,9 +198,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (link-visited ((t (,@fmt-undr ,@fg-magenta))))
              (menu ((t (,@fg-base0 ,@bg-base02))))
              (minibuffer-prompt ((t (,@fmt-bold ,@fg-blue)))) ; Question
-             (mode-line ((t (,@fg-base00 ,@bg-base02 :box (:line-width 1 :color ,base00)))))
+             (mode-line ((t (,@fg-base03 ,@bg-green :box nil))))
              (mode-line-buffer-id ((t (,@fg-magenta))))
-             (mode-line-inactive ((t (,@fg-base01 ,@bg-base03 :box (:line-width 1 :color ,base01)))))
+             (mode-line-inactive ((t (,@fg-base03 ,@bg-base0 :box nil))))
              (mode-line-emphasis ((t (,@fg-base1))))
              (mode-line-highlight ((t (,@fg-magenta :box (:line-width 1 :color ,base00)))))
              (region ((t (,@fg-base01 ,@bg-base03 ,@fmt-revbb)))) ; Visual
@@ -526,7 +526,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (clojure-test-success-face ((t (,@fg-green))))
              ;; For Brian Carper's extended clojure syntax table
              (clojure-keyword ((t (,@fg-yellow))))
-             (clojure-parens ((t (,@fg-base1))))
+             (clojure-parens ((t (,@fg-base01))))
              (clojure-braces ((t (,@fg-green))))
              (clojure-brackets ((t (,@fg-yellow))))
              (clojure-double-quote ((t (,@fg-cyan))))
@@ -608,13 +608,20 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (font-latex-sectioning-5-face ((t (,@fg-violet))))
              ;;flyspell
              (flyspell-incorrect ((t (,@fg-red))))
-             (flyspell-duplicate ((t (,@fg-yellow)))))
+             (flyspell-duplicate ((t (,@fg-yellow))))
+
+             (powerline-active1 ((t (:inherit mode-line ,@bg-base00 ,@fg-base03))))
+             (powerline-active2 ((t (:inherit mode-line ,@bg-base03 ,@fg-base00))))
+             (powerline-inactive1 ((t (:inherit mode-line-inactive ,@bg-base00 ,@fg-base03))))
+             (powerline-inactive2 ((t (:inherit mode-line-inactive ,@bg-base03 ,@fg-base00)))))
 
             ((foreground-color . ,(when (<= 16 (display-color-cells)) base0))
              (background-color . ,back)
              (background-mode . ,mode)
              (cursor-color . ,(when (<= 16 (display-color-cells))
-                                magenta)))))))))
+                                magenta))
+             (ansi-color-names-vector . (vector ,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base3))
+             (ansi-color-faces-vector . [default bold shadow italic underline bold bold-italic bold]))))))))
 
 (defmacro create-solarized-theme (mode)
   (let* ((theme-name (intern (concat "solarized-" (symbol-name mode))))
