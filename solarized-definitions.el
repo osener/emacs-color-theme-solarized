@@ -179,6 +179,11 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (fmt-revb `(:weight ,bold  :slant normal  :underline nil        :inverse-video t))
               (fmt-revbb `(:weight ,bright-bold :slant normal :underline nil  :inverse-video t))
               (fmt-revbbu `(:weight ,bright-bold :slant normal  :underline ,underline :inverse-video t)))
+
+          (eval-after-load 'term
+            `(setq ansi-term-color-vector
+                   (vector 'unspecified ,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base3)))
+
           `((;; basic
              (default ((t (,@fg-base0 ,@bg-back)))) ; Normal
              (cursor ((t (,@bg-magenta)))) ; Cursor
