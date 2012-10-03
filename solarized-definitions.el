@@ -182,7 +182,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 
           (eval-after-load 'term
             `(setq ansi-term-color-vector
-                   (vector 'unspecified ,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base3)))
+                   (vector 'unspecified ,base2 ,red ,green ,yellow ,blue ,magenta ,cyan ,base03)))
 
           `((;; basic
              (default ((t (,@fg-base0 ,@bg-back)))) ; Normal
@@ -625,7 +625,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (background-mode . ,mode)
              (cursor-color . ,(when (<= 16 (display-color-cells))
                                 magenta))
-             (ansi-color-names-vector . (vector ,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base3))
+             (ansi-color-names-vector . (vector ,base2 ,red ,green ,yellow ,blue ,magenta ,cyan ,base03))
              (ansi-color-faces-vector . [default bold shadow italic underline bold bold-italic bold]))))))))
 
 (defmacro create-solarized-theme (mode)
