@@ -196,6 +196,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (header-line ((t (:inherit mode-line ,@fg-magenta)))) ; Pmenu
              (highlight ((t (,@bg-base02))))
              (hl-line ((t (:underline ,opt-under ,@bg-base02)))) ; CursorLine
+             (match ((t (,@fg-blue ,@bg-back :inverse-video t))))
              (isearch ((t (,@fmt-stnd ,@fg-orange ,@bg-back)))) ; IncSearch
              (isearch-fail ((t (,@fmt-stnd ,@fg-orange ,@bg-back)))) ; IncSearch
              (lazy-highlight ((t (,@fmt-revr ,@fg-yellow ,@bg-back)))) ; Search
@@ -216,8 +217,20 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              ;; comint
              (comint-highlight-prompt ((t (,@fg-blue))))
              ;; compilation
-             (compilation-info ((t (,@fmt-bold ,@fg-green))))
-             (compilation-warning ((t (,@fmt-bold ,@fg-orange))))
+             (compilation-column-number ((t (,@fg-yellow))))
+             (compilation-line-number ((t (,@fg-yellow))))
+             (compilation-message-face ((t (,@fg-blue))))
+
+             ;; Grep
+             (grep-context-face ((t (,@fg-base01))))
+             (grep-error-face ((t (,@fg-red ,@fmt-bold ,@fmt-undr))))
+             (grep-hit-face ((t (,@fg-blue))))
+             (grep-match-face ((t (:foreground nil :background nil :inherit match))))
+
+             ;; mark-multiple
+             (mm/master-face ((t (:inherit region :foreground nil :background nil))))
+             (mm/mirror-face ((t (:inherit region :foreground nil :background nil))))
+
              ;; custom
              (custom-button
               ((t (,@fg-base1 ,@bg-base02
@@ -383,29 +396,33 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (hl-sexp-face ((t (,@bg-base02))))
              (highlight-80+ ((t (,@bg-base02))))
              ;; Flymake
-             (flymake-errline ((t (:underline ,orange ,@bg-back))))
-             (flymake-warnline ((t (:underline ,red ,@bg-back))))
+             (flymake-errline ((t (:foreground nil :underline ,red ,@bg-back))))
+             (flymake-warnline ((t (:foreground nil :underline ,yellow ,@bg-back))))
              ;; column-marker
              (column-marker-1 ((t (,@bg-base01))))
              (column-marker-2 ((t (,@bg-cyan))))
              (column-marker-3 ((t (,@bg-violet))))
+
              ;; jabber
-             (jabber-activity-face ((t (,@fmt-bold ,@fg-red))))
-             (jabber-activity-personal-face ((t (,@fmt-bold ,@fg-blue))))
-             (jabber-chat-error ((t (,@fmt-bold ,@fg-red))))
-             (jabber-chat-prompt-foreign ((t (,@fmt-bold ,@fg-red))))
-             (jabber-chat-prompt-local ((t (,@fmt-bold ,@fg-blue))))
-             (jabber-chat-prompt-system ((t (,@fmt-bold ,@fg-green))))
-             (jabber-chat-text-foreign ((t (,@fg-base1))))
-             (jabber-chat-text-local ((t (,@fg-base0))))
-             (jabber-chat-rare-time-face ((t (,@fmt-undr ,@fg-green))))
-             (jabber-roster-user-away ((t (,@fmt-ital ,@fg-green))))
-             (jabber-roster-user-chatty ((t (,@fmt-bold ,@fg-orange))))
-             (jabber-roster-user-dnd ((t (,@fmt-ital ,@fg-red))))
-             (jabber-roster-user-error ((t (:weight light :slant italic ,@fg-red))))
+             (jabber-chat-prompt-local ((t (,@fg-yellow))))
+             (jabber-chat-prompt-foreign ((t (,@fg-orange))))
+             (jabber-chat-prompt-system ((t (,@fg-yellow ,@fmt-bold))))
+             (jabber-chat-text-local ((t (,@fg-yellow))))
+             (jabber-chat-text-foreign ((t (,@fg-orange))))
+             (jabber-chat-text-error ((t (,@fg-red))))
+
+             (jabber-roster-user-online ((t (,@fg-green))))
+             (jabber-roster-user-xa ((t ,@fg-base01)))
+             (jabber-roster-user-dnd ((t ,@fg-yellow)))
+             (jabber-roster-user-away ((t (,@fg-orange))))
+             (jabber-roster-user-chatty ((t (,@fg-violet))))
+             (jabber-roster-user-error ((t (,@fg-red))))
              (jabber-roster-user-offline ((t (,@fg-base01))))
-             (jabber-roster-user-online ((t (,@fmt-bold ,@fg-blue))))
-             (jabber-roster-user-xa ((t (,@fmt-ital ,@fg-magenta))))
+
+             (jabber-rare-time-face ((t (,@fg-base01))))
+             (jabber-activity-face ((t (,@fg-violet))))
+             (jabber-activity-personal-face ((t (,@fg-cyan))))
+
              ;; gnus - these are taken from mutt, not VIM
              (gnus-cite-1 ((t (,@fmt-none ,@fg-blue)))) ; quoted
              (gnus-cite-2 ((t (,@fmt-none ,@fg-cyan)))) ; quoted1
@@ -570,6 +587,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (diredp-flag-mark-line ((t (:background nil :inherit highlight))))
              (diredp-ignored-file-name ((t (,@fg-base01))))
              (diredp-link-priv ((t (:background nil ,@fg-violet))))
+             (diredp-mode-line-flagged ((t (,@fg-red))))
              (diredp-no-priv ((t (:background nil))))
              (diredp-number ((t (,@fg-yellow))))
              (diredp-other-priv ((t (:background nil ,@fg-magenta))))
