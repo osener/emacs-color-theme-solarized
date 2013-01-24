@@ -632,15 +632,26 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (powerline-active1 ((t (:inherit mode-line ,@bg-base00 ,@fg-base03))))
              (powerline-active2 ((t (:inherit mode-line ,@bg-base03 ,@fg-base00))))
              (powerline-inactive1 ((t (:inherit mode-line-inactive ,@bg-base00 ,@fg-base03))))
-             (powerline-inactive2 ((t (:inherit mode-line-inactive ,@bg-base03 ,@fg-base00)))))
+             (powerline-inactive2 ((t (:inherit mode-line-inactive ,@bg-base03 ,@fg-base00))))
+
+             ;;ansi-term
+             (term-color-black ((t ( ,@fg-base02))))
+             (term-color-red ((t ( ,@fg-red))))
+             (term-color-green ((t ( ,@fg-green))))
+             (term-color-yellow ((t ( ,@fg-yellow))))
+             (term-color-blue ((t ( ,@fg-blue))))
+             (term-color-magenta ((t ( ,@fg-magenta))))
+             (term-color-cyan ((t ( ,@fg-cyan))))
+             (term-color-white ((t ( ,@fg-base00)))))
+
 
             ((foreground-color . ,(when (<= 16 (display-color-cells)) base0))
              (background-color . ,back)
              (background-mode . ,mode)
              (cursor-color . ,(when (<= 16 (display-color-cells))
                                 magenta))
-             (ansi-color-names-vector . (vector ,base2 ,red ,green ,yellow ,blue ,magenta ,cyan ,base03))
-             (ansi-color-faces-vector . [default bold shadow italic underline bold bold-italic bold]))))))))
+             (ansi-color-names-vector . [,base02 ,red ,green ,yellow ,blue ,magenta ,cyan ,base00]))))))))
+
 
 (defmacro create-solarized-theme (mode)
   (let* ((theme-name (intern (concat "solarized-" (symbol-name mode))))
