@@ -603,7 +603,6 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (diredp-ignored-file-name ((t (,@fg-base01))))
              (diredp-link-priv ((t (:background nil ,@fg-violet))))
              (diredp-mode-line-flagged ((t (,@fg-red))))
-             (diredp-mode-line-flagged ((t (,@fg-green))))
              (diredp-no-priv ((t (:background nil))))
              (diredp-number ((t (,@fg-yellow))))
              (diredp-other-priv ((t (:background nil ,@fg-magenta))))
