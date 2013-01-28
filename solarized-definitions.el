@@ -143,7 +143,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (bg-violet `(:background ,violet))
               (bg-blue `(:background ,blue))
               (bg-cyan `(:background ,cyan))
-              
+
               (fg-base03 `(:foreground ,base03))
               (fg-base02 `(:foreground ,base02))
               (fg-base01 `(:foreground ,base01))
@@ -216,6 +216,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (compilation-column-number ((t (,@fg-yellow))))
              (compilation-line-number ((t (,@fg-yellow))))
              (compilation-message-face ((t (,@fg-blue))))
+             (compilation-mode-line-exit ((t (,@fg-green))))
+             (compilation-mode-line-fail ((t (,@fg-red))))
+             (compilation-mode-line-run ((t (,@fg-blue))))
 
              ;; Grep
              (grep-context-face ((t (,@fg-base01))))
@@ -276,12 +279,22 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
                       (diff-refine-change ((t (,@fg-blue ,@bg-back))))))))
              (diff-file-header ((t (,@bg-back))))
              (diff-header ((t (,@fg-base1 ,@bg-back))))
+
+             (ediff-even-diff-A ((t (:foreground nil :background nil ,@fmt-revr))))
+             (ediff-even-diff-B ((t (:foreground nil :background nil ,@fmt-revr))))
+             (ediff-odd-diff-A ((t (,@fg-base01 :background nil ,@fmt-revr))))
+             (ediff-odd-diff-B ((t (,@fg-base01 :background nil ,@fmt-revr))))
+
              ;; IDO
              (ido-only-match ((t (,@fg-green))))
              (ido-subdir ((t (,@fg-magenta))))
              (ido-first-match ((t (,@fmt-bold ,@fg-yellow))))
              (ido-indicator ((t (,@fg-red ,@bg-back))))
              (ido-virtual ((t (,@fg-base01))))
+
+             ;; which-function
+             (which-func ((t (,@fg-blue :background nil ,@fmt-bold))))
+
              ;; emacs-wiki
              (emacs-wiki-bad-link-face ((t (,@fmt-undr ,@fg-red))))
              (emacs-wiki-link-face ((t (,@fmt-undr ,@fg-blue))))
@@ -334,7 +347,6 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (info-xref ((t (,@fmt-undr ,@fg-blue))))
              (info-xref-visited ((t (,@fg-magenta :inherit info-xref))))
              ;; org
-             (org-date ((t (@fmt-undr ,@fg-blue))))
              (org-agenda-structure ((t (,@fg-violet))))
              (org-agenda-date ((t (,@fmt-undr ,@fg-blue))))
              (org-agenda-done ((t (,@fg-green))))
@@ -342,11 +354,16 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (org-block ((t (,@fg-orange))))
              (org-code ((t (,@fg-yellow))))
              (org-column ((t (,@bg-base02))))
+             (org-column-title ((t (:inherit org-column ,@fmt-bold ,@fmt-undr))))
+             (org-date ((t (,@fg-blue ,@fmt-undr))))
              (org-document-info ((t (,@fg-cyan))))
              (org-document-info-keyword ((t (,@fg-green))))
              (org-document-title ((t (,@fmt-bold ,@fg-yellow :height 1.44))))
              (org-done ((t (,@fg-green))))
+             (org-ellipsis ((t (,@fg-base01))))
+             (org-footnote ((t (,@fg-cyan))))
              (org-formula ((t (,@fg-orange))))
+             (org-hide ((t (,@fg-base03 ,@bg-base03))))
              (org-link ((t (,@fmt-undr ,@fg-blue))))
              (org-scheduled ((t (,@fg-green))))
              (org-scheduled-previously ((t (,@fg-yellow))))
@@ -575,15 +592,18 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (undo-tree-visualizer-active-branch-face ((t (,@fg-red))))
              (undo-tree-visualizer-register-face ((t (,@fg-yellow))))
              ;; dired+
+             (diredp-compressed-file-suffix ((t (,@fg-blue))))
              (diredp-dir-heading ((t (:foreground nil :background nil :inherit heading))))
              (diredp-dir-priv ((t (,@fg-cyan :background nil))))
              (diredp-exec-priv ((t (,@fg-blue :background nil))))
+             (diredp-executable-tag ((t (,@fg-red :background nil))))
              (diredp-file-name ((t (,@fg-yellow))))
              (diredp-file-suffix ((t (,@fg-green))))
              (diredp-flag-mark-line ((t (:background nil :inherit highlight))))
              (diredp-ignored-file-name ((t (,@fg-base01))))
              (diredp-link-priv ((t (:background nil ,@fg-violet))))
              (diredp-mode-line-flagged ((t (,@fg-red))))
+             (diredp-mode-line-flagged ((t (,@fg-green))))
              (diredp-no-priv ((t (:background nil))))
              (diredp-number ((t (,@fg-yellow))))
              (diredp-other-priv ((t (:background nil ,@fg-magenta))))
