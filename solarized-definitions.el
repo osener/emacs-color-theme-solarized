@@ -292,6 +292,20 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (ido-indicator ((t (,@fg-red ,@bg-back))))
              (ido-virtual ((t (,@fg-base01))))
 
+             ;; helm
+             (helm-source-header ((t (,@fg-base01 ,@bg-base02 :height 1.2 ,@fmt-none))))
+             (helm-ff-directory ((t (,@fg-cyan :background nil))))
+             (helm-candidate-number ((t (,@fmt-undr ,@fg-blue :background nil))))
+             (helm-ff-file ((t (:inherit default))))
+             (helm-ff-executable ((t (,@fg-green))))
+             (helm-selection ((t (,@bg-blue ,@fg-base02 ,@fmt-none))))
+
+             ;; iedit
+             (iedit-occurrence ((t (,@fg-base3 ,@bg-violet))))
+
+             ;; eldoc
+             (eldoc-highlight-function-argument ((t (,@fmt-undr ,@fg-cyan))))
+
              ;; which-function
              (which-func ((t (,@fg-blue :background nil ,@fmt-bold))))
 
