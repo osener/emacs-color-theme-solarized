@@ -424,7 +424,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (highlight-80+ ((t (,@bg-base02))))
              ;; Flymake
              (flymake-errline ((t (:foreground nil :underline ,red ,@bg-back))))
-             (flymake-warnline ((t (:foreground nil :underline ,yellow ,@bg-back))))
+             (flymake-warnline ((t (:foreground nil :underline ,orange ,@bg-back))))
              ;; column-marker
              (column-marker-1 ((t (,@bg-base01))))
              (column-marker-2 ((t (,@bg-cyan))))
