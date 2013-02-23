@@ -200,9 +200,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (link-visited ((t (,@fmt-undr ,@fg-magenta))))
              (menu ((t (,@fg-base0 ,@bg-base02))))
              (minibuffer-prompt ((t (,@fmt-bold ,@fg-blue)))) ; Question
-             (mode-line ((t (,@fg-base03 ,@bg-green :box nil))))
+             (mode-line ((t (,@fg-base00 ,@bg-base02 :box (:line-width 1 :color ,base00)))))
              (mode-line-buffer-id ((t (,@fg-magenta))))
-             (mode-line-inactive ((t (,@fg-base03 ,@bg-base0 :box nil))))
+             (mode-line-inactive ((t (,@fg-base01 ,@bg-base03 :box (:line-width 1 :color ,base01)))))
              (mode-line-emphasis ((t (,@fg-base1))))
              (mode-line-highlight ((t (,@fg-magenta :box (:line-width 1 :color ,base00)))))
              (region ((t (,@fg-base01 ,@bg-base03 ,@fmt-revbb)))) ; Visual
